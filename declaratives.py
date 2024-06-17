@@ -4,6 +4,8 @@ from sqlalchemy.orm import sessionmaker, relationship
 import sqlalchemy as sqla
 import pandas as pd
 import os
+from datetime import datetime
+
 
 
 local_path = os.getcwd()
