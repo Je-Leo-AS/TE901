@@ -79,7 +79,7 @@ class sessionReview(Base):
     __tablename__ = 'sessionReview'
     id = Column(Integer, primary_key=True, autoincrement=True)
     client_id = Column(Integer, ForeignKey('client.id', ondelete='CASCADE'), nullable=False)
-    rating = Column(String, nullable=False)
+    rating = Column(Integer, nullable=False)
     review = Column(String, nullable=False)
     def __init__(self, **kwargs):
         super(sessionReview, self).__init__(**kwargs)
