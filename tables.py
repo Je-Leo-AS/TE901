@@ -63,6 +63,7 @@ class sessionClient(Base):
     __tablename__ = 'sessionClients'
     id = Column(Integer, primary_key=True, autoincrement=True)
     session_id = Column(Integer, ForeignKey('MovieSessions.id', ondelete='CASCADE'), nullable=False)
+    client_id = Column(Integer, ForeignKey('client.id', ondelete='CASCADE'), nullable=False)
     movie_id = Column(String, ForeignKey('movie.id', ondelete='CASCADE'), nullable=False)
     def __init__(self, **kwargs):
         super(sessionClient, self).__init__(**kwargs)
