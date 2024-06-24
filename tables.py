@@ -55,7 +55,6 @@ class MovieSessions(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     session_date = Column(DateTime, nullable=False)
     movie_id = Column(Integer, ForeignKey('movie.id', ondelete='CASCADE'), nullable=False)
-    sessionReview_id = Column(Integer, ForeignKey('sessionReview.id', ondelete='CASCADE'), nullable=True)
     def __init__(self, **kwargs):
         super(MovieSessions, self).__init__(**kwargs)
 
@@ -79,6 +78,7 @@ class sessionReview(Base):
     __tablename__ = 'sessionReview'
     id = Column(Integer, primary_key=True, autoincrement=True)
     client_id = Column(Integer, ForeignKey('client.id', ondelete='CASCADE'), nullable=False)
+    session_id = Column(Integer, ForeignKey('MovieSessions.id', ondelete='CASCADE'), nullable=False)
     rating = Column(Integer, nullable=False)
     review = Column(String, nullable=False)
     def __init__(self, **kwargs):
